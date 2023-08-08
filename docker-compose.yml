@@ -1,0 +1,17 @@
+version: '2.13'
+
+volumes:
+  db_data:
+
+services:
+  database:
+    image: postgres:latest
+    container_name: crud_with_REST
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=crud_test
+    volumes:
+      - db_data:/var/lib/postgresql/data
