@@ -8,4 +8,6 @@ public class ComidaRequest {
 
     //TODO notblank
     private String nome;
+    private String imagemUrl;
+    private Double preco;
 }
