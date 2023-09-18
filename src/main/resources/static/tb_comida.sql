@@ -1,4 +1,4 @@
-create table comida (
+create table tb_comida (
 	id SERIAL primary key,
 	nome VARCHAR(100) NOT NULL unique,
 	imagem_url varchar(255),

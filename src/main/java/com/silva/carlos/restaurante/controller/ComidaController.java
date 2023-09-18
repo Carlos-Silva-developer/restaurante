@@ -7,6 +7,7 @@ import com.silva.carlos.restaurante.service.CadastrarComidaService;
 import com.silva.carlos.restaurante.service.ListarComidaService;
 import com.silva.carlos.restaurante.service.RemovarComidaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.ConditionalOnDefaultWebSecurity;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,15 +34,19 @@ public class ComidaController {
         return listarComidaService.listar(pageable);
     }
 
-    //TODO role ADMIN
+    //TODO - ROLE ADM - Apenas dms podem cadastrar novos pratos
     @PostMapping("/cadastrar")
     @ResponseStatus(CREATED)
-                            // TODO @Valid
+                            // TODO - VALIDAÇÕES
     public ComidaResponse cadastrar(@RequestBody ComidaRequest request) {
         return cadastrarComidaService.incluir(request);
     }
 
-    @DeleteMapping("/remover/{comidaId}")
+    //TODO @Secured - criar anotations
+
+    @PutMapping
+
+    @DeleteMapping("/{comidaId}/remover")
     public void removarComidaService(@PathVariable Long comidaId) {
         removarComidaService.remover(comidaId);
     }

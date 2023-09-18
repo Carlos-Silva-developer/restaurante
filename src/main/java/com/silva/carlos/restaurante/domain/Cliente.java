@@ -11,20 +11,23 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id") @ToString(of = "id")
-public class Comida {
+@EqualsAndHashCode
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column
-    private String imagemUrl;
+    @Column(name = "cpf", nullable = false)
+    private String cpf;
 
-    @Column
-    private Double preco;
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "senha", nullable = false)
+    private String senha;
+
 }
